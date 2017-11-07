@@ -1,0 +1,26 @@
+package me.ashmen.ashnocaps;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import eventos.ChatNoCaps;
+
+public class Main extends JavaPlugin{
+	
+	public void onEnable(){
+		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "ATIVADO");
+		registrarEventos();
+	}
+	
+	public void onDisable(){
+		Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "DESATIVADO");
+	}
+	
+	public void registrarEventos(){
+		PluginManager pm = Bukkit.getPluginManager();
+		pm.registerEvents(new ChatNoCaps(), this);
+	}
+
+}
